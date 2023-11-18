@@ -141,7 +141,7 @@ class CoreNodeController():
 
                 self.fnLaunch(self.Launcher.launch_detect_lane.value, True)
                 self.fnLaunch(self.Launcher.launch_detect_sign.value, True)
-                self.fnLaunch(self.Launcher.launch_detect_construction.value, False)
+                self.fnLaunch(self.Launcher.launch_detect_construction.value, True)
 
                 self.fnLaunch(self.Launcher.launch_control_lane.value, True)
                 self.fnLaunch(self.Launcher.launch_control_moving.value, False) 
