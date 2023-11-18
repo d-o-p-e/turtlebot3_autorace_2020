@@ -56,7 +56,7 @@ class DetectParking():
             msg_pub_max_vel.data = 0.00
             self.pub_max_vel.publish(msg_pub_max_vel)
 
-            # rospy.sleep(1)
+            rospy.sleep(1)
 
             # 처음 앞으로 갈때
             rospy.loginfo("go straight")
