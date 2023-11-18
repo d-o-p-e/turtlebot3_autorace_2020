@@ -62,7 +62,7 @@ class CoreModeDecider():
             rospy.loginfo("currentmode : lane following")         
             if invoked_object == self.InvokedObject.traffic_sign.value:    # Any Sign detected
                 rospy.loginfo("currentmode : any sign detected")
-                if msg_data.data == self.TrafficSign.construction.value:
+                if msg_data == self.TrafficSign.construction.value:
                     rospy.loginfo("currentmode : construction detected")
                     self.current_mode = self.CurrentMode.construction.value
                 
