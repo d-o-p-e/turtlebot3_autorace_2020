@@ -316,7 +316,7 @@ class DetectParking():
         scan_end_right = 270 + angle_scan
 
         threshold_distance = 0.5
-        rospy.loginfo(f"scan : {scan.ranges}")
+        # rospy.loginfo(f"scan : {scan.ranges}")
         if self.start_obstacle_detection == True:
             for i in range(scan_start_left, scan_end_left):
                 if scan.ranges[i] < threshold_distance and scan.ranges[i] > 0.01:
