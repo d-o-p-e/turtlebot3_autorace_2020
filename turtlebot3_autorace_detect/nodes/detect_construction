@@ -67,6 +67,7 @@ class DetectContruction():
             msg_pub_construction_return.data = self.StepOfConstruction.avoid_obstacle.value
 
         elif order.data == self.StepOfConstruction.avoid_obstacle.value:
+            # 흰색 선 따라가다가 2번째 장애물 마주쳐서 왼쪽으로 돌기
             rospy.loginfo("avoid obstacle")
             rospy.loginfo("go left")
             msg_moving = MovingParam()
@@ -81,6 +82,7 @@ class DetectContruction():
 
             rospy.sleep(1)
 
+            # 장애물 피해서 조금 앞으로 가기
             rospy.loginfo("go straight")
             msg_moving.moving_type= 4
             msg_moving.moving_value_angular=0.0
@@ -93,6 +95,7 @@ class DetectContruction():
 
             rospy.sleep(1)
 
+            # 앞으로 간 후 오른쪽 돌기
             rospy.loginfo("go right")
             msg_moving.moving_type=3
             msg_moving.moving_value_angular=90
@@ -105,6 +108,7 @@ class DetectContruction():
 
             rospy.sleep(1)
 
+            # 오른
             rospy.loginfo("go straight")
             msg_moving.moving_type= 4
             msg_moving.moving_value_angular=0.0
@@ -201,7 +205,7 @@ class DetectContruction():
         angle_scan = 25
         scan_start = 0 - angle_scan
         scan_end = 0 + angle_scan
-        threshold_distance = 0.5
+        threshold_distance = 0.3
         is_obstacle_detected = False
         for i in range(scan_start, scan_end):
             if scan.ranges[i] < threshold_distance and scan.ranges[i] > 0.01:
