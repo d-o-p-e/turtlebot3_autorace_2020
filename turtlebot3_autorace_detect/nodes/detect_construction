@@ -202,7 +202,7 @@ class DetectContruction():
         rospy.sleep(3)
 
     def cbScanObstacle(self, scan):
-        angle_scan = 25
+        angle_scan = 5
         scan_start = 0 - angle_scan
         scan_end = 0 + angle_scan
         threshold_distance = 0.3
