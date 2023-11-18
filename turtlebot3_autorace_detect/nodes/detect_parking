@@ -58,6 +58,7 @@ class DetectParking():
 
             rospy.sleep(1)
 
+            # 처음 앞으로 갈때
             rospy.loginfo("go straight")
             msg_moving = MovingParam()
             msg_moving.moving_type= 4
@@ -71,10 +72,11 @@ class DetectParking():
 
             rospy.sleep(1)
 
+            # 처음 왼쪽 돌아서 진입
             rospy.loginfo("go left")
             msg_moving = MovingParam()
             msg_moving.moving_type=2
-            msg_moving.moving_value_angular=80
+            msg_moving.moving_value_angular=75
             msg_moving.moving_value_linear=0.0
             self.pub_moving.publish(msg_moving)
             while True:
@@ -84,6 +86,7 @@ class DetectParking():
 
             rospy.sleep(1)
 
+            # 주차장으로 직진하여 진입
             rospy.loginfo("go straight")
             msg_moving = MovingParam()
             msg_moving.moving_type= 4
@@ -103,6 +106,7 @@ class DetectParking():
                     break
             
             # if self.is_obstacle_detected_R == False:
+            # 주차장에서 오른쪽으로 회전
             rospy.loginfo("right parking is clear")
             rospy.loginfo("go right")
             msg_moving = MovingParam()
@@ -117,6 +121,7 @@ class DetectParking():
 
             rospy.sleep(1)
 
+            # 주차장 안으로 들어가서 주차
             rospy.loginfo("go straight")
             msg_moving = MovingParam()
             msg_moving.moving_type= 4
@@ -130,6 +135,7 @@ class DetectParking():
 
             rospy.sleep(1)
             
+            # 주차하고 밖으로 후진해서 나옴
             rospy.loginfo("go back straight")
             msg_moving = MovingParam()
             msg_moving.moving_type= 5
@@ -143,6 +149,7 @@ class DetectParking():
 
             rospy.sleep(1)
 
+            # 밖으로 나와서 회전하여 나올 준비
             rospy.loginfo("go right")
             msg_moving = MovingParam()
             msg_moving.moving_type= 3
@@ -156,6 +163,7 @@ class DetectParking():
 
             rospy.sleep(1)
 
+            # 회전하고 다시 교차로로 나오기
             rospy.loginfo("go straight")
             msg_moving = MovingParam()
             msg_moving.moving_type= 4
@@ -169,10 +177,11 @@ class DetectParking():
 
             rospy.sleep(1)
 
+            # 교차로로 나와서 왼쪽으로 회전
             rospy.loginfo("go left")
             msg_moving = MovingParam()
             msg_moving.moving_type=2
-            msg_moving.moving_value_angular=90
+            msg_moving.moving_value_angular=80
             msg_moving.moving_value_linear=0.0
             self.pub_moving.publish(msg_moving)
             while True:
@@ -182,6 +191,7 @@ class DetectParking():
 
             rospy.sleep(1)   
 
+            # 살짝 앞으로 가기
             rospy.loginfo("go straight")
             msg_moving = MovingParam()
             msg_moving.moving_type=4
