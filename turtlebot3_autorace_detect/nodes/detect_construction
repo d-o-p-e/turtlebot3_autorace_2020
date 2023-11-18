@@ -108,11 +108,11 @@ class DetectContruction():
 
             rospy.sleep(1)
 
-            # 오른
+            # 오른쪽 돌고 직진
             rospy.loginfo("go straight")
             msg_moving.moving_type= 4
             msg_moving.moving_value_angular=0.0
-            msg_moving.moving_value_linear=0.5
+            msg_moving.moving_value_linear=0.25
             self.pub_moving.publish(msg_moving)
             while True:
                 if self.is_moving_complete == True:
@@ -136,7 +136,7 @@ class DetectContruction():
             rospy.loginfo("go straight")
             msg_moving.moving_type= 4
             msg_moving.moving_value_angular=0.0
-            msg_moving.moving_value_linear=0.4
+            msg_moving.moving_value_linear=0.25
             self.pub_moving.publish(msg_moving)
             while True:
                 if self.is_moving_complete == True:
@@ -160,7 +160,7 @@ class DetectContruction():
             rospy.loginfo("go straight")
             msg_moving.moving_type=4
             msg_moving.moving_value_angular=0.0
-            msg_moving.moving_value_linear=0.4
+            msg_moving.moving_value_linear=0.25
             self.pub_moving.publish(msg_moving)
             while True:
                 if self.is_moving_complete == True:
@@ -210,7 +210,7 @@ class DetectContruction():
         # rospy.loginfo(f'scan ranges: {scan.ranges}')
         for i in range(scan_start, scan_end):
             if scan.ranges[i] < threshold_distance and scan.ranges[i] > 0.01:
-                rospy.loginfo(f'object at {i} degree found at distance of {scan.ranges[i]}')
+                # rospy.loginfo(f'object at {i} degree found at distance of {scan.ranges[i]}')
                 is_obstacle_detected = True
 
         self.is_obstacle_detected = is_obstacle_detected
