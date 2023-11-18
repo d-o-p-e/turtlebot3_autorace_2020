@@ -72,7 +72,7 @@ class DetectContruction():
             rospy.loginfo("go left")
             msg_moving = MovingParam()
             msg_moving.moving_type=2
-            msg_moving.moving_value_angular=77
+            msg_moving.moving_value_angular=79
             msg_moving.moving_value_linear=0.0
             self.pub_moving.publish(msg_moving)
             while True:
@@ -98,7 +98,7 @@ class DetectContruction():
             # 앞으로 간 후 오른쪽 돌기
             rospy.loginfo("go right")
             msg_moving.moving_type=3
-            msg_moving.moving_value_angular=77
+            msg_moving.moving_value_angular=79
             msg_moving.moving_value_linear=0.0
             self.pub_moving.publish(msg_moving)
             while True:
@@ -123,7 +123,7 @@ class DetectContruction():
 
             rospy.loginfo("go right")
             msg_moving.moving_type=3
-            msg_moving.moving_value_angular=77
+            msg_moving.moving_value_angular=79
             msg_moving.moving_value_linear=0.0
             self.pub_moving.publish(msg_moving)
             while True:
@@ -147,7 +147,7 @@ class DetectContruction():
 
             rospy.loginfo("go left")
             msg_moving.moving_type=2
-            msg_moving.moving_value_angular=77
+            msg_moving.moving_value_angular=79
             msg_moving.moving_value_linear=0.0
             self.pub_moving.publish(msg_moving)
             while True:
