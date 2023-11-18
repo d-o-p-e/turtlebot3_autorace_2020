@@ -56,7 +56,7 @@ class DetectParking():
             msg_pub_max_vel.data = 0.00
             self.pub_max_vel.publish(msg_pub_max_vel)
 
-            rospy.sleep(1)
+            # rospy.sleep(1)
 
             # 처음 앞으로 갈때
             rospy.loginfo("go straight")
@@ -70,7 +70,7 @@ class DetectParking():
                     break
             self.is_moving_complete = False
 
-            rospy.sleep(1)
+            # rospy.sleep(1)
 
             # 처음 왼쪽 돌아서 진입
             rospy.loginfo("go left")
@@ -84,7 +84,7 @@ class DetectParking():
                     break
             self.is_moving_complete = False
 
-            rospy.sleep(1)
+            # rospy.sleep(1)
 
             # 주차장으로 직진하여 진입
             rospy.loginfo("go straight")
@@ -98,7 +98,7 @@ class DetectParking():
                     break
             self.is_moving_complete = False
 
-            rospy.sleep(1)
+            # rospy.sleep(1)
 
             self.start_obstacle_detection = True
             while True:
@@ -119,7 +119,7 @@ class DetectParking():
                     break
             self.is_moving_complete = False
 
-            rospy.sleep(1)
+            # rospy.sleep(1)
 
             # 주차장 안으로 들어가서 주차
             rospy.loginfo("go straight")
@@ -133,7 +133,7 @@ class DetectParking():
                     break
             self.is_moving_complete = False
 
-            rospy.sleep(1)
+            # rospy.sleep(1)
             
             # 주차하고 밖으로 후진해서 나옴
             rospy.loginfo("go back straight")
@@ -147,7 +147,7 @@ class DetectParking():
                     break
             self.is_moving_complete = False
 
-            rospy.sleep(1)
+            # rospy.sleep(1)
 
             # 밖으로 나와서 회전하여 나올 준비
             rospy.loginfo("go right")
@@ -161,7 +161,7 @@ class DetectParking():
                     break
             self.is_moving_complete = False
 
-            rospy.sleep(1)
+            # rospy.sleep(1)
 
             # 회전하고 다시 교차로로 나오기
             rospy.loginfo("go straight")
@@ -175,7 +175,7 @@ class DetectParking():
                     break
             self.is_moving_complete = False
 
-            rospy.sleep(1)
+            # rospy.sleep(1)
 
             # 교차로로 나와서 왼쪽으로 회전
             rospy.loginfo("go left")
@@ -189,7 +189,7 @@ class DetectParking():
                     break
             self.is_moving_complete = False
 
-            rospy.sleep(1)   
+            # rospy.sleep(1)   
 
             # 살짝 앞으로 가기
             rospy.loginfo("go straight")
@@ -203,7 +203,7 @@ class DetectParking():
                     break
             self.is_moving_complete = False
 
-            rospy.sleep(1)       
+            # rospy.sleep(1)       
             
             # elif self.is_obstacle_detected_L == False:
             #     rospy.loginfo("left parking is clear")
