@@ -207,7 +207,7 @@ class DetectContruction():
         scan_end = 0 + angle_scan
         threshold_distance = 0.4
         is_obstacle_detected = False
-        rospy.loginfo(f'scan ranges: {scan.ranges}')
+        # rospy.loginfo(f'scan ranges: {scan.ranges}')
         for i in range(scan_start, scan_end):
             if scan.ranges[i] < threshold_distance and scan.ranges[i] > 0.01:
                 rospy.loginfo(f'object at {i} degree found at distance of {scan.ranges[i]}')
