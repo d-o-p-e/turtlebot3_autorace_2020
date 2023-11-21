@@ -67,7 +67,7 @@ class DetectContruction():
             msg_pub_construction_return.data = self.StepOfConstruction.avoid_obstacle.value
 
         elif order.data == self.StepOfConstruction.avoid_obstacle.value:
-            # 흰색 선 따라가다가 2번째 장애물 마주쳐서 왼쪽으로 돌기
+            # 1. go left
             rospy.loginfo("avoid obstacle")
             rospy.loginfo("go left")
             msg_moving = MovingParam()
@@ -82,7 +82,7 @@ class DetectContruction():
 
             rospy.sleep(1)
 
-            # 장애물 피해서 조금 앞으로 가기
+            # 2. go straight
             rospy.loginfo("go straight")
             msg_moving.moving_type= 4
             msg_moving.moving_value_angular=0.0
@@ -95,7 +95,7 @@ class DetectContruction():
 
             rospy.sleep(1)
 
-            # 앞으로 간 후 오른쪽 돌기
+            # 3. turn right
             rospy.loginfo("go right")
             msg_moving.moving_type=3
             msg_moving.moving_value_angular=77.5
@@ -108,7 +108,7 @@ class DetectContruction():
 
             rospy.sleep(1)
 
-            # 오른쪽 돌고 직진
+            # 4. go straight
             rospy.loginfo("go straight")
             msg_moving.moving_type= 4
             msg_moving.moving_value_angular=0.0
@@ -121,6 +121,7 @@ class DetectContruction():
 
             rospy.sleep(1)
 
+            # 5. go right
             rospy.loginfo("go right")
             msg_moving.moving_type=3
             msg_moving.moving_value_angular=77.5
@@ -133,6 +134,7 @@ class DetectContruction():
 
             rospy.sleep(1)
 
+            # 6. go straight
             rospy.loginfo("go straight")
             msg_moving.moving_type= 4
             msg_moving.moving_value_angular=0.0
@@ -145,6 +147,7 @@ class DetectContruction():
 
             rospy.sleep(1)
 
+            # 7. go left
             rospy.loginfo("go left")
             msg_moving.moving_type=2
             msg_moving.moving_value_angular=77.5
@@ -157,6 +160,7 @@ class DetectContruction():
 
             rospy.sleep(1)
 
+            # 8. go straight
             rospy.loginfo("go straight")
             msg_moving.moving_type=4
             msg_moving.moving_value_angular=0.0
@@ -168,28 +172,6 @@ class DetectContruction():
             self.is_moving_complete = False
 
             rospy.sleep(1)
-
-            # rospy.loginfo("go left")
-            # msg_moving.moving_type=2
-            # msg_moving.moving_value_angular=80
-            # msg_moving.moving_value_linear=0.0
-            # self.pub_moving.publish(msg_moving)
-            # while True:
-            #     if self.is_moving_complete == True:
-            #         break
-            # self.is_moving_complete = False
-
-            # rospy.sleep(1)
-
-            # rospy.loginfo("go straight")
-            # msg_moving.moving_type=4
-            # msg_moving.moving_value_angular=0.0
-            # msg_moving.moving_value_linear=0.4
-            # self.pub_moving.publish(msg_moving)
-            # while True:
-            #     if self.is_moving_complete == True:
-            #         break         
-            # self.is_moving_complete = False
 
             rospy.loginfo("construction finished")
             msg_pub_construction_return.data = self.StepOfConstruction.exit.value        
@@ -207,10 +189,8 @@ class DetectContruction():
         scan_end = 0 + angle_scan
         threshold_distance = 0.2
         is_obstacle_detected = False
-        # rospy.loginfo(f'scan ranges: {scan.ranges}')
         for i in range(scan_start, scan_end):
             if scan.ranges[i] < threshold_distance and scan.ranges[i] > 0.01:
-                # rospy.loginfo(f'object at {i} degree found at distance of {scan.ranges[i]}')
                 is_obstacle_detected = True
 
         self.is_obstacle_detected = is_obstacle_detected
