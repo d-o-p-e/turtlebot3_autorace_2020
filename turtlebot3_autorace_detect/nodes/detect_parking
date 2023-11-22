@@ -91,7 +91,7 @@ class DetectParking():
             msg_moving = MovingParam()
             msg_moving.moving_type= 4
             msg_moving.moving_value_angular=0.0
-            msg_moving.moving_value_linear=0.9
+            msg_moving.moving_value_linear=1.0
             self.pub_moving.publish(msg_moving)
             while True:
                 if self.is_moving_complete == True:
@@ -223,7 +223,7 @@ class DetectParking():
         scan_start_right = 270 - angle_scan
         scan_end_right = 270 + angle_scan
 
-        threshold_distance = 0.5
+        threshold_distance = 0.7
         if self.start_obstacle_detection == True:
             for i in range(scan_start_left, scan_end_left):
                 if scan.ranges[i] < threshold_distance and scan.ranges[i] > 0.01:
